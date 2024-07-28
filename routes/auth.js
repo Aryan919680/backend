@@ -88,7 +88,7 @@ router.get('/google/callback', passport.authenticate('google', { session: false 
   const payload = { user: { id: req.user.id } };
   jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
     if (err) throw err;
-    res.redirect(`https://frontend-ten-inky.vercel.app/tasks/token=${token}`);
+    res.redirect(`https://frontend-ten-inky.vercel.app/tasks?token=${token}`);
   });
 });
 
