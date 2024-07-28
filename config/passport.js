@@ -10,6 +10,7 @@ module.exports = (passport) => {
     callbackURL: '/auth/google/callback'
   },
   async (accessToken, refreshToken, profile, done) => {
+    console.log("profile",profile)
     const { id, displayName } = profile;
     try {
       let user = await User.findOne({ googleId: id });
